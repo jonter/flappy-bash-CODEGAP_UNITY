@@ -5036,6 +5036,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7874862335754520285}
   - component: {fileID: 1382991166856609545}
+  - component: {fileID: 7218053527658080567}
   m_Layer: 0
   m_Name: Crush Zone
   m_TagString: Untagged
@@ -5103,6 +5104,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7908533, y: 3.62}
   m_EdgeRadius: 0
+--- !u!114 &7218053527658080567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5057701151502460666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b66367e4052d13e49965a7ae712e91c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5204989600609113516
 GameObject:
   m_ObjectHideFlags: 0
@@ -5253,6 +5266,7 @@ GameObject:
   - component: {fileID: 276433400766741409}
   - component: {fileID: 8067284495417934567}
   - component: {fileID: 2898018647446580751}
+  - component: {fileID: 2083858162457698262}
   m_Layer: 0
   m_Name: Pipes Basic
   m_TagString: Untagged
@@ -5293,8 +5307,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topTube: {fileID: 9037905620569255026}
   bottomTube: {fileID: 2614953772296947331}
-  animTime: 0.4
+  animTime: 0.3
   offset: 2
+  hp: 2
   bashVFX: {fileID: 5622961440701543432}
 --- !u!114 &8067284495417934567
 MonoBehaviour:
@@ -5404,3 +5419,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2083858162457698262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6275238877170968932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0e2c4a71abdaa43855824295d7f62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

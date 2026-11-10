@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [SelectionBase]
-public class BasicBirdMovement : MonoBehaviour
+public class BirdMovement : MonoBehaviour
 {
     float minY;
     Rigidbody2D rb;
@@ -11,12 +11,20 @@ public class BasicBirdMovement : MonoBehaviour
     [SerializeField] float gravity = 2;
     [SerializeField] float speedX = 2;
 
+    Transform graphics;
     // Start is called before the first frame update
     void Start()
     {
+        graphics = transform.GetChild(0);
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = gravity;
         minY = transform.position.y;
+    }
+
+    private void OnDisable()
+    {
+        rb.gravityScale = 0;
+        rb.velocity = new Vector2();
     }
 
     // Update is called once per frame
@@ -39,7 +47,7 @@ public class BasicBirdMovement : MonoBehaviour
     {
         Vector3 dir = rb.velocity.normalized;
         dir.y = dir.y / 2;
-        transform.right = dir;
+        graphics.right = dir;
     }
 
 }

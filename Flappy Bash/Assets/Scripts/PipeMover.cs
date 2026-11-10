@@ -8,21 +8,19 @@ public class PipeMover : MonoBehaviour
     [SerializeField] Transform topTube;
     [SerializeField] Transform bottomTube;
 
-    [SerializeField] float animTime = 0.4f;
     [SerializeField] float offset = 2;
-    [SerializeField] int hp = 2;
 
     bool ready = true;
 
     [SerializeField] ParticleSystem bashVFX;
-
+    Pipe pipeInfo;
+    CrushZone cz;
     // Start is called before the first frame update
     void Start()
     {
-        
+        pipeInfo = GetComponent<Pipe>();
+        cz = GetComponentInChildren<CrushZone>();
     }
-
-    public int GetHP() { return hp; }
 
     public void Crush()
     {
@@ -33,17 +31,18 @@ public class PipeMover : MonoBehaviour
 
     IEnumerator CrushCoroutine()
     {
+        cz.CrushAll(pipeInfo.animTime);
         float topY = topTube.position.y - offset;
         float botY = bottomTube.position.y + offset;
-        topTube.DOLocalMoveY(topY, animTime)
+        topTube.DOLocalMoveY(topY, pipeInfo.animTime)
             .SetLoops(2, LoopType.Yoyo).SetEase(Ease.InQuad);
-        bottomTube.DOLocalMoveY(botY, animTime)
+        bottomTube.DOLocalMoveY(botY, pipeInfo.animTime)
             .SetLoops(2, LoopType.Yoyo).SetEase(Ease.InQuad);
-        yield return new WaitForSeconds(animTime);
+        yield return new WaitForSeconds(pipeInfo.animTime);
         GetComponent<AudioSource>().Play();
         bashVFX.Play();
         // трубы сомкнуты
-        yield return new WaitForSeconds(animTime);
+        yield return new WaitForSeconds(pipeInfo.animTime);
         ready = true;
     }
 
